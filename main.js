@@ -116,8 +116,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const startButton = document.querySelector(".start__button");
   const pauseButton = document.querySelector(".pause__button");
 
+  const leftButton = document.querySelector(".left__button");
+  const rightButton = document.querySelector(".right__button");
+  const downButton = document.querySelector(".down__button");
+  const rotateButton = document.querySelector(".rotate__button");
+
   startButton.addEventListener("click", startGame);
   pauseButton.addEventListener("click", pauseGame);
+
+  leftButton.addEventListener("click", moveTetrominoLeft);
+  rightButton.addEventListener("click", moveTetrominoRight);
+  downButton.addEventListener("click", moveTetrominoDown);
+  rotateButton.addEventListener("click", rotateTetromino);
 });
 
 function pauseGame() {
