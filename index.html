@@ -30,26 +30,44 @@
           </div>
         </div>
         <div class="upper-buttons">
-          <button class="button start__button">Start</button>
+          <button class="button restart__button">Restart</button>
           <button class="button pause__button">Pause</button>
         </div>
         <div class="lower-buttons">
-          <button class="button rotate__button">
-            <i class="fa-solid fa-rotate" style="color: #ffffff"></i>
-          </button>
-          <div>
-            <button class="button left__button">
-              <i class="fa-solid fa-left-long" style="color: #ffffff"></i>
+          <div class="direction-buttons">
+            <button class="button rotate__button">
+              <i class="fa-solid fa-rotate" style="color: #ffffff"></i>
             </button>
-            <button class="button right__button">
-              <i class="fa-solid fa-right-long" style="color: #ffffff"></i>
+            <div>
+              <button class="button left__button">
+                <i class="fa-solid fa-left-long" style="color: #ffffff"></i>
+              </button>
+              <button class="button right__button">
+                <i class="fa-solid fa-right-long" style="color: #ffffff"></i>
+              </button>
+            </div>
+            <button class="button down__button">
+              <i class="fa-solid fa-down-long" style="color: #ffffff"></i>
             </button>
           </div>
-          <button class="button down__button">
-            <i class="fa-solid fa-down-long" style="color: #ffffff"></i>
-          </button>
+          <div>
+            <button class="button drop__button">
+              <i class="fa-solid fa-caret-down" style="color: #ffffff"></i>
+            </button>
+          </div>
         </div>
       </div>
+    </div>
+
+    <div class="game-over" id="gameOverBlock">
+      <p class="game-over_banner">Game over</p>
+      <div class="currentScore outside-score__banner">
+        Total score:
+        <span class="score">0</span>
+      </div>
+      <button class="outside_button button restart__button">
+        Restart game
+      </button>
     </div>
     <script src="main.js"></script>
   </body>
