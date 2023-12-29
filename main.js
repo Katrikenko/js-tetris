@@ -153,6 +153,97 @@ document.addEventListener("DOMContentLoaded", function () {
   dropButton.addEventListener("click", dropTetrominoDown);
 });
 
+//==============================================
+
+// keydown events
+
+document.addEventListener("keydown", onKeyDown);
+
+function onKeyDown(event) {
+  //   console.log(event);
+
+  if (event.key === "p") {
+    pauseGame();
+  }
+  if (isPaused) {
+    return;
+  }
+
+  switch (event.key) {
+    case " ":
+      dropTetrominoDown();
+      break;
+    case "ArrowDown":
+      //   console.log("ArrowDown");
+      moveTetrominoDown();
+      break;
+    case "ArrowUp":
+      //   console.log("ArrowUp");
+      rotateTetromino();
+      break;
+    case "ArrowLeft":
+      //   console.log("ArrowLeft");
+      moveTetrominoLeft();
+      break;
+    case "ArrowRight":
+      //   console.log("ArrowRight");
+      moveTetrominoRight();
+      break;
+  }
+  draw();
+}
+
+function moveTetrominoDown() {
+  if (!tetromino) {
+    return;
+  }
+  if (isGameOver) {
+    return;
+  }
+
+  tetromino.row += 1;
+  if (isValid()) {
+    tetromino.row -= 1;
+    placeTetromino();
+  } else {
+    isGameRealOver();
+  }
+}
+
+// function moveTetrominoUp() {
+//   tetromino.row -= 1;
+//   if (isOutsideOfGameBoard()) {
+//     tetromino.row += 1;
+//   }
+//   draw();
+// }
+
+function dropTetrominoDown() {
+  //   console.log("Before drop:", tetromino);
+  while (!isValid()) {
+    tetromino.row++;
+  }
+  //   console.log("After drop:", tetromino);
+  tetromino.row--;
+  placeTetromino();
+}
+
+function moveTetrominoLeft() {
+  tetromino.column -= 1;
+  if (isValid()) {
+    tetromino.column += 1;
+  }
+  draw();
+}
+
+function moveTetrominoRight() {
+  tetromino.column += 1;
+  if (isValid()) {
+    tetromino.column -= 1;
+  }
+  draw();
+}
+
 //============================
 
 // function moveDown() {
@@ -343,97 +434,6 @@ function draw() {
     drawTetromino();
     //   console.table(playfield);
   }, 0);
-}
-
-//==============================================
-
-// keydown events
-
-document.addEventListener("keydown", onKeyDown);
-
-function onKeyDown(event) {
-  //   console.log(event);
-
-  if (event.key === "p") {
-    pauseGame();
-  }
-  if (isPaused) {
-    return;
-  }
-
-  switch (event.key) {
-    case " ":
-      dropTetrominoDown();
-      break;
-    case "ArrowDown":
-      //   console.log("ArrowDown");
-      moveTetrominoDown();
-      break;
-    case "ArrowUp":
-      //   console.log("ArrowUp");
-      rotateTetromino();
-      break;
-    case "ArrowLeft":
-      //   console.log("ArrowLeft");
-      moveTetrominoLeft();
-      break;
-    case "ArrowRight":
-      //   console.log("ArrowRight");
-      moveTetrominoRight();
-      break;
-  }
-  draw();
-}
-
-function moveTetrominoDown() {
-  if (!tetromino) {
-    return;
-  }
-  if (isGameOver) {
-    return;
-  }
-
-  tetromino.row += 1;
-  if (isValid()) {
-    tetromino.row -= 1;
-    placeTetromino();
-  } else {
-    isGameRealOver();
-  }
-}
-
-// function moveTetrominoUp() {
-//   tetromino.row -= 1;
-//   if (isOutsideOfGameBoard()) {
-//     tetromino.row += 1;
-//   }
-//   draw();
-// }
-
-function dropTetrominoDown() {
-  //   console.log("Before drop:", tetromino);
-  while (!isValid()) {
-    tetromino.row++;
-  }
-  //   console.log("After drop:", tetromino);
-  tetromino.row--;
-  placeTetromino();
-}
-
-function moveTetrominoLeft() {
-  tetromino.column -= 1;
-  if (isValid()) {
-    tetromino.column += 1;
-  }
-  draw();
-}
-
-function moveTetrominoRight() {
-  tetromino.column += 1;
-  if (isValid()) {
-    tetromino.column -= 1;
-  }
-  draw();
 }
 
 //=======================================================
