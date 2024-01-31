@@ -145,6 +145,31 @@ body {
     inset -2px -2px 2px rgba(255, 255, 255, 0.295);
 }
 
+.next-field {
+  display: grid;
+  grid-template-columns: repeat(6, min(4vh, 7vw));
+  grid-template-rows: repeat(3, min(4vh, 7vw));
+  gap: 1px;
+}
+
+.next-field div {
+  background-color: rgba(31, 27, 32, 0.295);
+  border-radius: 0.3vh;
+  box-shadow: inset 2px 2px 2px rgba(55, 48, 56, 0.295),
+    inset -2px -2px 2px rgba(255, 255, 255, 0.295);
+  width: 100%;
+  height: 100%;
+}
+
+.next__board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffda05d0;
+  font-size: 20px;
+}
+
 div .O {
   background-color: rgb(255, 123, 0);
 }
